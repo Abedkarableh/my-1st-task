@@ -1,6 +1,23 @@
 // In this code below a general example how to write React components using JSX
+import { useState } from 'react';
 import { createElement } from 'react';
 import './App.css'
+
+// task2 example 'useState'
+function NameForm() {
+  const [name, setName] = useState('');
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <p>مرحباً، {name}</p>
+    </div>
+  );
+}
 
 
 function App() {
@@ -8,13 +25,13 @@ function App() {
     <div>
       <Header />
       <Main />
+      <NameForm />
       <UserCard name="أحمد" job="مبرمج" />
       <Button label="إلغاء" />
       <Button label="حفظ" />
       <UserCard name="سارة" job="مصممة" />
       <Button label="إلغاء" />
       <Button label="حفظ" />
-
       <Footer />
     </div>
   );
